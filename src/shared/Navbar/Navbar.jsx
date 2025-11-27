@@ -1,13 +1,11 @@
 import React from "react";
-import logo from "../../assets/images/logo (6).png";
+import Logo from "../Logo/Logo";
+
 const Navbar = () => {
   return (
     <header className="bg-[#F0FFF0] pt-[30px]">
       <nav className="max-w-7xl mx-auto flex items-center justify-between ">
-        <div className=" flex items-center gap-x-2">
-          <img className="w-18 h-14" src={logo} alt="logo" />
-         <h1 className="text-[#56548C] text-2xl font-bold">E- School</h1>
-        </div>
+       <Logo/>
         <div className="flex items-center gap-x-10">
           <ul className="flex items-center gap-x-8 text-[#000000] text-base font-normal ">
             <li className="cursor-pointer hover:underline">Books</li>
