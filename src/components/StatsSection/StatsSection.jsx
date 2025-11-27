@@ -32,7 +32,7 @@ const StatsSection = () => {
         {stats.map((sta, index) => (
           <div
             key={index}
-            className="bg-[#F8FFFB] hover:bg-[#FFFFFF] hover:shadow-2xl  text-center pb-12 pt-13 rounded-base shadow-sm"
+            className="bg-[#F8FFFB] hover:bg-[#FFFFFF] hover:shadow-2xl  text-center pb-12 pt-13 rounded-[16px] shadow-sm"
           >
             <img
               className="w-[66px] h-[85px] mx-auto"
