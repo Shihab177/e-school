@@ -2,7 +2,7 @@ import React from "react";
 import signupImg from "../../../assets/images/singup.svg";
 import Logo from "../../../shared/Logo/Logo";
 import { Link } from "react-router";
-const SignUp = () => {
+const Signup = () => {
   return (
     <div className="min-h-screen flex poppins">
       <div className="w-[76%] bg-[#f5f7fa] px-12 py-8">
@@ -88,4 +88,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;
