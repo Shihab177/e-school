@@ -6,8 +6,10 @@ const SignIn = () => {
   return (
     <div className="min-h-screen bg-[#F5F7FA] flex poppins">
       <div className="w-[76%] flex flex-col px-12 py-8">
-        <Logo />
-
+        <Link to="/">
+          {" "}
+          <Logo />
+        </Link>
         <div className="flex items-center justify-center h-full">
           <img src={signInImg} className="w-[460px]" alt="loginImg" />
         </div>
@@ -52,11 +54,9 @@ const SignIn = () => {
           </Link>
         </p>
 
-       <div className="flex items-center w-full my-4">
+        <div className="flex items-center w-full my-4">
           <div className="flex-grow border-t border-gray-300"></div>
-          <span className="mx-2 text-xs text-gray-500">
-            OR 
-          </span>
+          <span className="mx-2 text-xs text-gray-500">OR</span>
           <div className="flex-grow border-t border-gray-300"></div>
         </div>
 
