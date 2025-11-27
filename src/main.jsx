@@ -7,7 +7,7 @@ import { router } from './Router/Router.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode >
-  <div className='font-rubik'>
+  <div className='font-rubik bg-[#FFFFFF]'>
      <RouterProvider router={router}/>
   </div>
   </StrictMode>,
