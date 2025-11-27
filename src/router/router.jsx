@@ -3,6 +3,7 @@ import RootLayout from "../layout/RootLayout";
 import Home from "../pages/home/Home";
 import AuthLayout from "../layout/AuthLayout";
 import SignUp from "../pages/authentication/SignUp/SignUp";
+import SignIn from "../pages/authentication/SignIn/SignIn";
 
 export const router = createBrowserRouter([
   {
@@ -20,9 +21,13 @@ export const router = createBrowserRouter([
     Component: AuthLayout,
     children: [
       {
-        path: "singup",
+        path: "signup",
         Component: SignUp,
       },
+      {
+        path:"signin",
+        Component:SignIn
+      }
     ],
   },
 ]);
