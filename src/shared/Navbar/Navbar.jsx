@@ -9,13 +9,13 @@ const Navbar = () => {
          <h1 className="text-[#56548C] text-2xl font-bold">E- School</h1>
         </div>
         <div className="flex items-center gap-x-10">
-          <ul className="flex items-center gap-x-8 text-[#000000] text-base font-normal">
-            <li>Books</li>
-            <li>Courses</li>
-            <li>Others</li>
-            <li>Blog</li>
+          <ul className="flex items-center gap-x-8 text-[#000000] text-base font-normal ">
+            <li className="cursor-pointer">Books</li>
+            <li className="cursor-pointer">Courses</li>
+            <li className="cursor-pointer">Others</li>
+            <li className="cursor-pointer">Blog</li>
           </ul>
-          <button className="bg-[#21B573] hover:bg-[#1A955C] rounded-[33px] shadow-sm text-[#FFFFFF] text-base font-normal py-3 px-7 transition-colors duration-200">Sing in</button>
+          <button className="bg-[#21B573] hover:bg-[#1A955C] rounded-[33px] shadow-sm text-[#FFFFFF] text-base font-normal py-3 px-7 cursor-pointer transition-colors duration-200">Sing in</button>
         </div>
       </nav>
     </header>
