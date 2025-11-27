@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../Logo/Logo";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
@@ -13,7 +14,7 @@ const Navbar = () => {
             <li className="cursor-pointer hover:underline">Others</li>
             <li className="cursor-pointer hover:underline">Blog</li>
           </ul>
-          <button className="bg-[#21B573] hover:bg-[#1A955C] rounded-[33px] shadow-sm text-[#FFFFFF] text-base font-normal py-3 px-7 cursor-pointer transition-colors duration-200">Sing in</button>
+         <Link to="/signin"> <button className="bg-[#21B573] hover:bg-[#1A955C] rounded-[33px] shadow-sm text-[#FFFFFF] text-base font-normal py-3 px-7 cursor-pointer transition-colors duration-200">Sing in</button></Link>
         </div>
       </nav>
     </header>
