@@ -31,8 +31,8 @@ const OnlineCourses = () => {
   },
 ];
   return (
-    <div className="">
-      <h2 className="text-[#413960] font-bold text-4xl text-center">
+    <div className="poppins">
+      <h2 className="text-[#413960] font-bold text-4xl text-center ">
         Online Courses
       </h2>
       <div className="grid grid-cols-3 gap-x-7 max-w-7xl mx-auto mt-14 mb-22">

@@ -2,7 +2,7 @@ import React from 'react';
 import heroImage from "../../assets/images/hero.png"
 const Hero = () => {
     return (
-       <section className='bg-[#F0FFF0] pt-17 pb-18'>
+       <section className='bg-[#F0FFF0] pt-17 pb-18 poppins'>
            <div className='max-w-7xl mx-auto  flex items-center justify-between'>
             {/* left */}
             <div className='max-w-[405px]'>
