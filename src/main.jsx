@@ -6,7 +6,9 @@ import { RouterProvider } from 'react-router'
 import { router } from './Router/Router.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-   <RouterProvider router={router}/>
+  <StrictMode >
+  <div className='font-rubik'>
+     <RouterProvider router={router}/>
+  </div>
   </StrictMode>,
 )
