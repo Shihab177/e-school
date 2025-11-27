@@ -13,7 +13,7 @@ const SignIn = () => {
         </div>
       </div>
 
-      <div className="w-[24%] bg-white flex flex-col justify-center items-center px-12">
+      <div className="w-[24%] bg-white flex flex-col justify-center items-center px-10">
         <h2 className="text-2xl font-bold text-[#46566B]">Welcome Back</h2>
         <p className="text-sm text-gray-500 mb-7">Please sign in to continue</p>
 
