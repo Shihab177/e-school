@@ -1,8 +1,41 @@
 import React from "react";
 import Logo from "../../../shared/Logo/Logo";
 import signInImg from "../../../assets/images/signIn.svg";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useSigninStore from "../../../store/signin/useSigninStore";
+import toast, { Toaster } from "react-hot-toast";
+import API from "../../../lib/axios";
+import useAuthStore from "../../../store/authStore/useAuthStore";
+import { useMutation } from "@tanstack/react-query";
 const Signin = () => {
+  const { user,setUser } = useSigninStore();
+  const { setAuthStore } = useAuthStore();
+  const navigate = useNavigate();
+
+  const signinMutation = useMutation({
+    mutationFn: (userData) => API.post("/signin", userData),
+    onSuccess: (response) => {
+      const { success, message, result } = response.data;
+      if (success) {
+        
+        setAuthStore(result);
+        navigate("/");
+      } else {
+        toast.error(message || "Signin failed");
+      }
+    },
+    onError: (error, variables, context) => {
+      toast.error(error.response?.data?.message || error.message, {
+        id: context.toastId,
+      });
+    },
+  });
+
+  const handelSignin = (e) => {
+    e.preventDefault();
+    signinMutation.mutate(user);
+  };
+
   return (
     <div className="min-h-screen bg-[#F5F7FA] flex poppins">
       <div className="w-[76%] flex flex-col px-12 py-8">
@@ -21,12 +54,14 @@ const Signin = () => {
 
         <div className="space-y-4 mb-3 mt-6">
           <input
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
             type="email"
             placeholder="Email"
             className="w-full h-11 px-3 border border-gray-300 rounded-lg text-sm outline-0 focus:ring-2 focus:ring-[#A7A3EF]"
           />
 
           <input
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
             type="password"
             placeholder="Password"
             className="w-full h-11 px-3 border border-gray-300 rounded-lg text-sm outline-0 focus:ring-2 focus:ring-[#A7A3EF]"
@@ -43,7 +78,10 @@ const Signin = () => {
           </button>
         </div>
 
-        <button className="w-full h-11 bg-[#4f46e5] cursor-pointer hover:scale-105 active:scale-95 text-white rounded-lg font-medium">
+        <button
+          onClick={handelSignin}
+          className="w-full h-11 bg-[#4f46e5] cursor-pointer hover:scale-105 active:scale-95 text-white rounded-lg font-medium"
+        >
           Sign In
         </button>
 
@@ -82,6 +120,7 @@ const Signin = () => {
           <p>Privacy Notice &nbsp; | &nbsp; Term of Service</p>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
