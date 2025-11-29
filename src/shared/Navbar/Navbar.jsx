@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handelSignout = () => {
     logout();
-    navigate("/signin");
+   
   };
   return (
     <header className="bg-[#F0FFF0] pt-[30px]">
@@ -23,7 +23,7 @@ const Navbar = () => {
             <li className="cursor-pointer hover:underline">Others</li>
             <li className="cursor-pointer hover:underline">Blog</li>
           </ul>
-          {authStore.role==="admin" && (
+          {authStore?.role==="admin" && (
             <Link to="/dashboard">
               {" "}
               <p className="flex items-center gap-2 -mr-4 text-lg text-[#21B573] cursor-pointer">
