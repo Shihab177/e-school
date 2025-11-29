@@ -1,8 +1,31 @@
 import React from "react";
 import signupImg from "../../../assets/images/singup.svg";
 import Logo from "../../../shared/Logo/Logo";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useSignupStore from "../../../store/signup/useSignupStore";
+import API from "../../../lib/axios";
+import toast, { Toaster } from "react-hot-toast";
+import { useMutation } from "@tanstack/react-query";
 const Signup = () => {
+  const { user, setUser } = useSignupStore();
+  const navigate = useNavigate();
+
+  const mutation = useMutation({
+    mutationFn: (userData) => API.post("/user", userData),
+    onSuccess: (response) => {
+      toast.success(response.data.message);
+      setUser({});
+      navigate("/signin");
+    },
+    onError: (error) => {
+      toast.error(error.response?.data?.message || error.message);
+    },
+  });
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    mutation.mutate(user);
+  };
   return (
     <div className="min-h-screen flex poppins">
       <div className="w-[76%] bg-[#f5f7fa] px-12 py-8">
@@ -48,42 +71,47 @@ const Signup = () => {
           <div className="flex-grow border-t border-gray-300"></div>
         </div>
 
-        <form className="w-full space-y-4 mt-4">
+        <div className="w-full space-y-4 mt-4">
           <input
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
             type="text"
             className="w-full border border-gray-300 rounded-lg h-10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#A7A3EF]"
-            placeholder="Username"
+            placeholder="Name"
           />
           <input
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
             type="email"
             className="w-full border border-gray-300 rounded-lg h-10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#A7A3EF]"
             placeholder="Email"
           />
           <input
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
             type="password"
             className="w-full border border-gray-300 rounded-lg h-10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#A7A3EF]"
             placeholder="Password"
-          />
-          <input
-            type="password"
-            className="w-full border border-gray-300 rounded-lg h-10 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#A7A3EF]"
-            placeholder="Repeat Password"
           />
 
           <label className="flex items-center gap-2 text-sm">
             <input type="checkbox" />I agree with privacy policy
           </label>
 
-          <button className="w-full mt-5 h-11 rounded-lg bg-[#4f46e5] text-white cursor-pointer hover:scale-105 active:scale-95">
-            Sign In
+          <button
+            onClick={handleSignup}
+            disabled={mutation.isLoading}
+            className="w-full mt-5 h-11 rounded-lg bg-[#4f46e5] text-white cursor-pointer hover:scale-105 active:scale-95"
+          >
+          {mutation.isLoading ? 'Signing up...' : 'Sign Up'}
           </button>
-        </form>
+        </div>
 
         <p className="text-sm text-gray-500 mt-4">
           Already have an account?{" "}
-          <Link to="/signin"><span className="text-blue-500 cursor-pointer ">Sign In</span></Link>
+          <Link to="/signin">
+            <span className="text-blue-500 cursor-pointer ">Sign In</span>
+          </Link>
         </p>
       </div>
+      <Toaster />
     </div>
   );
 };
