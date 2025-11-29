@@ -12,10 +12,10 @@ const Testimonial = () => {
         </div>
         <div className="max-w-[580px]">
           <p className="text-[#000000] text-base font-normal poppins">
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable.
+            The courses on this platform are truly amazing. The lessons are
+            explained in a simple and clear way, making them easy for learners
+            of any level to understand. The learning experience feels smoother
+            than ever before.
           </p>
         </div>
       </div>
