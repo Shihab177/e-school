@@ -6,8 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex">
         <div className="max-w-[364px] mr-32">
           <p className=" text-gray-300">
-            Millions of people of all ages and from around the world are
-            improving their lives with us
+          Your trusted platform for modern learning, skill development, and career growth.
           </p>
         </div>
 
